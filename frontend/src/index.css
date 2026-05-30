@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f8fafc;
+    color: #0f172a;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700
+           text-white font-semibold text-sm rounded-xl transition-all duration-200
+           shadow-sm hover:shadow-md active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-slate-50
+           text-slate-700 font-semibold text-sm rounded-xl border border-slate-200
+           transition-all duration-200 shadow-sm hover:shadow-md active:scale-95
+           disabled:opacity-50 disabled:cursor-not-allowed;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-danger-50 hover:bg-danger-100
+           text-danger-600 font-semibold text-sm rounded-xl border border-danger-200
+           transition-all duration-200 active:scale-95;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl border border-slate-100 shadow-card;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm
+           text-slate-800 placeholder-slate-400 outline-none transition-all duration-200
+           focus:border-brand-400 focus:ring-2 focus:ring-brand-100;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .badge-brand { @apply badge bg-brand-50 text-brand-700 border border-brand-100; }
+  .badge-success { @apply badge bg-success-50 text-success-700 border border-success-100; }
+  .badge-warning { @apply badge bg-warning-50 text-warning-600 border border-warning-100; }
+  .badge-danger { @apply badge bg-danger-50 text-danger-600 border border-danger-100; }
+  .badge-purple { @apply badge bg-purple-50 text-purple-700 border border-purple-100; }
+  .badge-slate { @apply badge bg-slate-100 text-slate-600 border border-slate-200; }
+
+  .score-ring-high { @apply text-success-600; }
+  .score-ring-mid { @apply text-warning-500; }
+  .score-ring-low { @apply text-danger-500; }
+
+  .section-title {
+    @apply text-xl font-bold text-slate-800;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* File drop zone */
+.drop-zone-active {
+  border-color: #0ea5e9 !important;
+  background: #f0f9ff !important;
+}
+
+/* Progress animation */
+@keyframes progress-bar {
+  from { width: 0%; }
+}
+.progress-bar { animation: progress-bar 1s ease-out forwards; }
+
+/* Score circle */
+.score-circle-track { stroke: #e2e8f0; }
+.score-circle-fill {
+  stroke-dasharray: 251;
+  stroke-dashoffset: 251;
+  animation: score-fill 1.2s ease-out forwards;
+  transition: stroke-dashoffset 1.2s ease-out;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Page transitions */
+.page-enter { animation: fadeIn 0.3s ease-out; }
+
+/* Rank badge */
+.rank-1 { background: linear-gradient(135deg, #ffd700, #ffa500); }
+.rank-2 { background: linear-gradient(135deg, #c0c0c0, #a8a8a8); }
+.rank-3 { background: linear-gradient(135deg, #cd7f32, #b87333); }
